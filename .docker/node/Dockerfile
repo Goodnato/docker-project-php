@@ -1,0 +1,6 @@
+FROM node:14.16
+
+ARG UID
+ARG PID
+
+USER ${UID}:${PID}
