@@ -16,11 +16,11 @@ volumes:
 services:
   nginx:
     image: nginx:latest
-    container_name: $CONTAINER_NAME_NGINX
+    container_name: ${CONTAINER_NAME_NGINX}${CONTAINER_NICKNAME}
     environment: 
-      - HTTP_HOST=$HTTP_HOST
+      - HTTP_HOST=${HTTP_HOST}
     ports:
-      - "$PORT_NGINX:$PORT_NGINX"
+      - ${PORT_NGINX}:${PORT_NGINX}
     volumes:
       - ./src/:/var/www/html
       - ./.docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
@@ -29,10 +29,10 @@ services:
 
   redis:
     image: redis:latest
-    container_name: $CONTAINER_NAME_REDIS
-    command: redis-server --requirepass $PASSWORD_REDIS
+    container_name: ${CONTAINER_NAME_REDIS}${CONTAINER_NICKNAME}
+    command: redis-server --requirepass ${PASSWORD_REDIS}
     ports:
-      - "$PORT_REDIS:$PORT_REDIS"
+      - ${PORT_REDIS}:${PORT_REDIS}
     networks:
       - networks_redis
 
@@ -41,11 +41,11 @@ services:
       context: ./.docker/php/
       dockerfile: Dockerfile
       args: 
-        UID: $UID
-        PID: $PID
-    container_name: $CONTAINER_NAME_PHP
+        UID: ${UID}
+        PID: ${PID}
+    container_name: ${CONTAINER_NAME_PHP}${CONTAINER_NICKNAME}
     ports:
-      - "$PORT_PHP:$PORT_PHP"
+      - ${PORT_PHP}:${PORT_PHP}
     volumes:
       - ./src/:/var/www/html
       - ./.docker/php/config/php.ini:/usr/local/etc/php/conf.d/app-php.ini
@@ -60,15 +60,15 @@ services:
 
   mysql:
     image: mysql:8
-    container_name: $CONTAINER_NAME_MYSQL
+    container_name: ${CONTAINER_NAME_MYSQL}${CONTAINER_NICKNAME}
     ports:
-      - "$PORT_MYSQL:$PORT_MYSQL"
+      - ${PORT_MYSQL}:${PORT_MYSQL}
     command: --default-authentication-plugin=mysql_native_password
     environment:
-      MYSQL_DATABASE: $MYSQL_DATABASE
-      MYSQL_USER: $MYSQL_USER
-      MYSQL_PASSWORD: $MYSQL_PASSWORD
-      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     volumes:
       - ./.docker/mysql/data:/docker-entrypoint-initdb.d
       - ./.docker/mysql/config:/etc/mysql/conf.d
@@ -81,11 +81,11 @@ services:
       context: ./.docker/node/
       dockerfile: Dockerfile
       args: 
-        UID: $UID
-        PID: $PID
-    container_name: $CONTAINER_NAME_NODE
+        UID: ${UID}
+        PID: ${PID}
+    container_name: ${CONTAINER_NAME_NODE}${CONTAINER_NICKNAME}
     ports:
-      - "$PORT_NODE:$PORT_NODE"
+      - ${PORT_NODE}:${PORT_NODE}
     volumes:
       - ./src/:/var/www/html
     working_dir: /var/www/html
