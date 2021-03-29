@@ -30,7 +30,6 @@ RUN if [ "$APP_ENV" != 'production' ] ; then \
             && echo "xdebug.client_host="$XDEBUG_CLIENT_HOST >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
             && echo "xdebug.client_port="$XDEBUG_CLIENT_PORT >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
             && echo "xdebug.start_with_request=$XDEBUG_START" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
-            && echo "xdebug.log=$XDEBUG_LOG" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     ; fi
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer

@@ -45,10 +45,14 @@ We all love laravel. So it's easy to install
 rm src/index.php
 docker-compose exec php composer create-project laravel/laravel .
 docker-compose exec php php artisan
+nano ./.docker/nginx/default.conf
+change root for /var/www/html/public
+docker-compose restart
 cd src/
 nano .env
 DB_HOST=mysql
 REDIS_HOST=redis
+access -> http://localhost
 ```
 
 ## NPM
