@@ -13,6 +13,7 @@ The following technologies are included:
 
 - [PHP 8.0.2](https://www.php.net/) - New PHP with JIT 😃
 - [Composer 2](https://getcomposer.org/) - Composer and PHP together ❤️
+- [Xdebug 3](https://xdebug.org/) - Debug your app 🧐
 - [Nginx latest](https://www.nginx.com/) - The power HTTP SERVER 😮
 - [Redis latest](https://redis.io/) - CACHE CACHE CACHEEEEE 😎
 - [Mysql 8](https://www.mysql.com/) - Use index with responsibility 👌
@@ -64,4 +65,4 @@ docker-compose exec node npm install sweetalert2
 
 MIT
 
-**Free Software, Hell Yeah!**
+**Free Software, o/**

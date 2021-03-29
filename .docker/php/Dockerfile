@@ -16,6 +16,23 @@ RUN docker-php-ext-install pdo pdo_mysql
 
 RUN pecl install redis && docker-php-ext-enable redis
 
+ARG APP_ENV
+ARG XDEBUG_START
+ARG XDEBUG_IDEKEY
+ARG XDEBUG_CLIENT_HOST
+ARG XDEBUG_CLIENT_PORT
+ARG XDEBUG_LOG
+RUN if [ "$APP_ENV" != 'production' ] ; then \
+        yes | pecl install xdebug \
+            && docker-php-ext-enable xdebug \
+            && echo "xdebug.mode=debug" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+            && echo "xdebug.idekey=$XDEBUG_IDEKEY" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+            && echo "xdebug.client_host="$XDEBUG_CLIENT_HOST >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+            && echo "xdebug.client_port="$XDEBUG_CLIENT_PORT >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+            && echo "xdebug.start_with_request=$XDEBUG_START" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+            && echo "xdebug.log=$XDEBUG_LOG" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    ; fi
+
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 ARG UID

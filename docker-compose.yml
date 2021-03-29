@@ -43,6 +43,12 @@ services:
       args: 
         UID: ${UID}
         PID: ${PID}
+        APP_ENV: ${APP_ENV}
+        XDEBUG_START: ${XDEBUG_START}
+        XDEBUG_IDEKEY: ${XDEBUG_IDEKEY}
+        XDEBUG_CLIENT_HOST: ${XDEBUG_CLIENT_HOST}
+        XDEBUG_CLIENT_PORT: ${XDEBUG_CLIENT_PORT}
+        XDEBUG_LOG: ${XDEBUG_LOG}
     container_name: ${CONTAINER_NAME_PHP}${CONTAINER_NICKNAME}
     ports:
       - ${PORT_PHP}:${PORT_PHP}
