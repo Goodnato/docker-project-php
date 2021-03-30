@@ -17,6 +17,7 @@ The following technologies are included:
 - [Nginx latest](https://www.nginx.com/) - The power HTTP SERVER 😮
 - [Redis latest](https://redis.io/) - CACHE CACHE CACHEEEEE 😎
 - [Mysql 8](https://www.mysql.com/) - Use index with responsibility 👌
+- [Phpmyadmin latest](https://www.phpmyadmin.net/) - Update without where 🎲
 - [Node 14.16](https://nodejs.org/en/) - What's the next package? 👀
 
 ## Installation
@@ -51,6 +52,9 @@ docker-compose restart
 cd src/
 nano .env
 DB_HOST=mysql
+DB_DATABASE=database
+DB_USERNAME=user
+DB_PASSWORD=123
 REDIS_HOST=redis
 access -> http://localhost
 ```

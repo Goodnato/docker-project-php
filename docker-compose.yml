@@ -81,6 +81,19 @@ services:
     networks:
       - networks_mysql
 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: ${CONTAINER_NAME_PHPMYADMIN}${CONTAINER_NICKNAME}
+    ports:
+      - ${PORT_PHPMYADMIN}:80
+    environment:
+      PMA_HOST: mysql
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    networks:
+      - networks_mysql
+
   node:
     build: 
       context: ./.docker/node/
