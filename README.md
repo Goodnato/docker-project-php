@@ -1,4 +1,4 @@
-# Project Docker
+# Project Docker PHP
 ## by Goodnato
 
 A project template ready to start
@@ -20,12 +20,22 @@ The following technologies are included:
 - [Phpmyadmin latest](https://www.phpmyadmin.net/) - Update without where 🎲
 - [Node 14.16](https://nodejs.org/en/) - What's the next package? 👀
 
+# Requirements
+
+> Windows
+- [Docker](https://docs.docker.com/engine/install/)
+
+> Linux
+- [Docker](https://docs.docker.com/engine/install/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+
 ## Installation
 
-Fist create a .env and set your values
+First create a .env and set your values
 
 ```sh
-cd <your-project>
+git clone https://github.com/Goodnato/docker-project-php
+cd docker-project-php
 cp .env_example .env
 nano .env
 HTTP_HOST=localhost
@@ -35,7 +45,8 @@ Now BUILD 🙌
 
 ```sh
 docker-compose up -d --build
-access -> http://localhost
+Access -> http://localhost
+Phpmyadmin -> http://localhost:8080 > username: root, password: 123
 ```
 
 ## Laravel
@@ -64,7 +75,7 @@ access -> http://localhost
 Do you want packages for your application? Great, follow these steps
 
 ```sh
-cd <your-project>
+cd docker-project-php
 docker-compose exec node npm install
 docker-compose exec node npm install sweetalert2
 ```
