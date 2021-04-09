@@ -67,6 +67,7 @@ DB_DATABASE=database
 DB_USERNAME=user
 DB_PASSWORD=123
 REDIS_HOST=redis
+REDIS_PASSWORD=Redis!
 access -> http://localhost
 ```
 
@@ -85,3 +86,5 @@ docker-compose exec node npm install sweetalert2
 MIT
 
 **Free Software, o/**
+
+v1.0
