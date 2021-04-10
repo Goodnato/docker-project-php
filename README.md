@@ -19,6 +19,7 @@ The following technologies are included:
 - [Mysql 8](https://www.mysql.com/) - Use index with responsibility 👌
 - [Phpmyadmin latest](https://www.phpmyadmin.net/) - Update without where 🎲
 - [Node 14.16](https://nodejs.org/en/) - What's the next package? 👀
+- [Mailhog latest](https://github.com/mailhog/MailHog) - Test local mails ✉️
 
 # Requirements
 
@@ -68,6 +69,7 @@ DB_USERNAME=user
 DB_PASSWORD=123
 REDIS_HOST=redis
 REDIS_PASSWORD=Redis!
+MAIL_HOST=mailhog
 access -> http://localhost
 ```
 
