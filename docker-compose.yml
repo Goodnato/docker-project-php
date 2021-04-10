@@ -9,6 +9,8 @@ networks:
     driver: bridge
   networks_node:
     driver: bridge
+  networks_mailhog:
+    driver: bridge
 
 volumes:
   persistent:
@@ -62,6 +64,7 @@ services:
       - networks_nginx
       - networks_mysql
       - networks_redis
+      - networks_mailhog
 
   mysql:
     image: mysql:8
@@ -111,3 +114,12 @@ services:
     networks:
       - networks_node
       - networks_redis
+
+  mailhog:
+    container_name: ${CONTAINER_NAME_MAILHOG}${CONTAINER_NICKNAME}
+    image: mailhog/mailhog:latest
+    ports:
+      - ${PORT_HOGMAIL_SMTP}:1025
+      - ${PORT_HOGMAIL_UI}:8025
+    networks:
+      - networks_mailhog
