@@ -40,6 +40,7 @@ cd docker-project-php
 cp .env_example .env
 nano .env
 HTTP_HOST=localhost
+HTTP_PORT=80
 ```
 
 Now BUILD 🙌
@@ -58,8 +59,8 @@ We all love laravel. So it's easy to install
 rm src/index.php
 docker-compose exec php composer create-project laravel/laravel .
 docker-compose exec php php artisan
-nano ./.docker/nginx/default.conf
-change root for /var/www/html/public
+nano .env
+change ROOT_PHP for default root laravel -> /var/www/html/public
 docker-compose restart
 cd src/
 nano .env
@@ -70,6 +71,8 @@ DB_PASSWORD=123
 REDIS_HOST=redis
 REDIS_PASSWORD=Redis!
 MAIL_HOST=mailhog
+MAIL_FROM_ADDRESS=teste@mailhog.local
+MAIL_FROM_ADDRESS=Mailhog
 access -> http://localhost
 ```
 
@@ -80,6 +83,7 @@ Do you want packages for your application? Great, follow these steps
 ```sh
 cd docker-project-php
 docker-compose exec node npm install
+docker-compose exec node npm install bootstrap
 docker-compose exec node npm install sweetalert2
 ```
 
@@ -89,4 +93,4 @@ MIT
 
 **Free Software, o/**
 
-v1.0
+v2.1
