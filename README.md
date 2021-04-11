@@ -59,8 +59,7 @@ We all love laravel. So it's easy to install
 rm src/index.php
 docker-compose exec php composer create-project laravel/laravel .
 docker-compose exec php php artisan
-nano .env
-change ROOT_PHP for default root laravel -> /var/www/html/public
+nano .env and change ROOT_PHP for default root laravel -> /var/www/html/public
 docker-compose restart
 cd src/
 nano .env
@@ -72,7 +71,7 @@ REDIS_HOST=redis
 REDIS_PASSWORD=Redis!
 MAIL_HOST=mailhog
 MAIL_FROM_ADDRESS=teste@mailhog.local
-MAIL_FROM_ADDRESS=Mailhog
+MAIL_FROM_NAME=Mailhog
 access -> http://localhost
 ```
 
