@@ -37,7 +37,7 @@ First create a .env and set your values
 ```sh
 git clone https://github.com/Goodnato/docker-project-php
 cd docker-project-php
-cp .env_example .env
+cp .env_template .env
 nano .env
 HTTP_HOST=localhost
 HTTP_PORT=80
