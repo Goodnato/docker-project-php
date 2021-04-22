@@ -91,5 +91,3 @@ docker-compose exec node npm install sweetalert2
 MIT
 
 **Free Software, o/**
-
-v2.1
