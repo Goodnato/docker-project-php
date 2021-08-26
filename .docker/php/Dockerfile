@@ -37,6 +37,7 @@ RUN if [ "$APP_ENV" != 'production' ] ; then \
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 ARG UID
-ARG PID
+ARG USERNAME
 
-USER ${UID}:${PID}
+RUN useradd -m ${USERNAME} -s /bin/bash -u ${UID} -G sudo
+USER ${USERNAME}
