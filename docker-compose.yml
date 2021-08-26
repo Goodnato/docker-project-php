@@ -29,6 +29,8 @@ services:
     volumes:
       - ./src/:/var/www/html
       - ./.docker/nginx/default.conf.template:/etc/nginx/templates/default.conf.template
+    depends_on:
+      - php
     networks:
       - networks_nginx
 
@@ -61,7 +63,6 @@ services:
       - ./.docker/php/config/php.ini:/usr/local/etc/php/conf.d/app-php.ini
     working_dir: /var/www/html
     depends_on:
-      - nginx
       - mysql
     networks:
       - networks_nginx
