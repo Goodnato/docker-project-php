@@ -23,7 +23,7 @@ ARG XDEBUG_START
 ARG XDEBUG_IDEKEY
 ARG XDEBUG_CLIENT_HOST
 ARG XDEBUG_CLIENT_PORT
-ARG XDEBUG_LOG
+
 RUN if [ "$APP_ENV" != 'production' ] ; then \
         yes | pecl install xdebug \
             && docker-php-ext-enable xdebug \
