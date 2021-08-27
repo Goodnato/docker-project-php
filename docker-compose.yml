@@ -49,7 +49,7 @@ services:
       dockerfile: Dockerfile
       args: 
         UID: ${UID}
-        PID: ${PID}
+        USERNAME: ${USERNAME}
         APP_ENV: ${APP_ENV}
         XDEBUG_START: ${XDEBUG_START}
         XDEBUG_IDEKEY: ${XDEBUG_IDEKEY}
@@ -107,7 +107,7 @@ services:
       dockerfile: Dockerfile
       args: 
         UID: ${UID}
-        PID: ${PID}
+        USERNAME: ${USERNAME}
     container_name: ${CONTAINER_NAME_NODE}${CONTAINER_NICKNAME}
     ports:
       - ${PORT_NODE}:${PORT_NODE}
